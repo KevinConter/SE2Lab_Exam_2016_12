@@ -133,7 +133,37 @@ var insertStudent = function insertStudent(student)
 		return false;
 }
 
-//AGGIUNGERE QUI SOTTO NUOVE FUNZIONI
+
+/**
+ * @brief This function searchs students with mark less than or grather than the mark
+ * @param String mark: contains the symbol < or > and tha numbero for the mark
+ * @return the list of students, or null if there is an error
+ */
+var searchByMark = function searchByMark(mark){
+	if(mark.length==2){
+		var students = [];
+		var symbol = mark[0];
+		var number = parseFloat(mark[1]);
+		switch(symbol){
+			case "<":	for(var i=0;i<studentList.length;i++){
+							if(parseFloat(studentList[i].mark) < number){
+								students.push(studentList[i];
+							}
+						}
+						break;
+			case ">":	for(var i=0;i<studentList.length;i++){
+							if(parseFloat(studentList[i].mark) > number){
+								students.push(studentList[i];
+							}
+						}
+						break;
+			default: return null;
+		}
+		return students;
+	}else{
+		return null;
+	}
+}
 
 
 
@@ -144,3 +174,4 @@ exports.deleteStudentID = deleteStudentID;
 exports.deleteStudentSSN = deleteStudentSSN; 
 exports.insertStudent = insertStudent;  
 exports.getList = getList; 
+exports.searchByMark = searchByMark;

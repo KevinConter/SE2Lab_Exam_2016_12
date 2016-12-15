@@ -87,4 +87,12 @@ describe("Test /searchByMark"function(){
 		done();
 	  });
 	});
+	
+	var data1 = {mark: "<6"}
+	it("to return status code 200", function(done){
+		client.post(base_url + "searchByMark/", data1, function(err, res, body) {
+		expect(res.statusCode).toBe(200);
+		done();
+	  });
+	});
 });

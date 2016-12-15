@@ -80,5 +80,11 @@ describe("Test /searchStudent", function() {
 });
 
 describe("Test /searchByMark"function(){
-	
+	var data = "";
+	it("to return status code 406", function(done){
+		client.post(base_url + "searchByMark/", data, function(err, res, body) {
+		expect(res.statusCode).toBe(406);
+		done();
+	  });
+	});
 });

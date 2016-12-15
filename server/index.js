@@ -267,6 +267,42 @@ app.post('/addStudent', function(request, response)
 
 });
 
+app.post("/searchByMark",function(request,response){
+	var headers = {};
+	headers["Access-Control-Allow-Origin"] = "*";
+	headers["Access-Control-Allow-Methods"] = "POST, GET, PUT, DELETE, OPTIONS";
+	headers["Access-Control-Allow-Credentials"] = false;
+	headers["Access-Control-Max-Age"] = '86400'; // 24 hours
+	headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept";
+	headers["Content-Type"] = "application/json";
+	var mark;
+	var error = false;
+	if(typeof request.body !== "undefined" && request.body){
+		if(typeof request.body.mark !== "undefined" && request.body.mark){
+			mark = request.body.mark;
+		}else{
+			error=true;
+		}
+	}else{
+		error=true;
+	}
+	
+	if(!error){
+		var students = studentManager.searchByMark(mark);
+		if(students != null){
+			response.writeHead(200, headers);
+			response.end(JSON.stringify(students));
+		}else{
+			response.writeHead(400, headers);
+			response.end(JSON.stringify());
+		}
+	}else{
+		//unaceptable input
+		response.writeHead(406, headers);
+		response.end(JSON.stringify("1"));
+	}
+});
+
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });

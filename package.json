@@ -1,0 +1,25 @@
+{
+  "name": "se2_exam",
+  "version": "1.0.0",
+  "description": "progetto esame se2",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KevinConter/SE2Lab_Exam_2016_12.git"
+  },
+  "author": "Kevin Conter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KevinConter/SE2Lab_Exam_2016_12/issues"
+  },
+  "homepage": "https://github.com/KevinConter/SE2Lab_Exam_2016_12#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cors": "^2.8.1",
+    "express": "^4.14.0",
+    "util": "^0.10.3"
+  }
+}

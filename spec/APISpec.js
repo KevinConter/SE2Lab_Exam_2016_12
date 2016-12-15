@@ -78,3 +78,7 @@ describe("Test /searchStudent", function() {
 
 
 });
+
+describe("Test /searchByMark"function(){
+	
+});
